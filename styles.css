@@ -102,32 +102,34 @@ p{
     font-size: xx-large;
     color: rgb(0, 255, 115);
 }
-@media screen and (max-width:800px){
+@media (max-width:600px){
     .container-content{
         display: flex;
         flex-direction: column;
-        padding-top: 6vh;
+        padding-top: 4vh;
         height: 75vh;
         width: 35vw;
-        font-size: 20px;
-        gap: 3vh;
+        font-size: large;
+        gap: 4vh;
+        background: none;
+    }
+    input{
+        width: 25vw;
+        height: 5vh;
+        border-radius: 5px;
+        padding-left: 5px;
     }
     button{
         font-size: smaller;
         border-radius: 5px;
-        height: 2vh;
-        width: 12vw;
+        height: 4vh;
+        width: 100vw;
         color: white;
         background-color: green;
     }
-    img{
-        height: 3vh;
-        width: 3vw;
-    }
-    input{
-        width: 15vw;
-        height: 3vh;
-        border-radius: 5px;
-        padding-left: 4px;
+    .heading{
+        font-size: large;
+        color: rgb(0, 255, 115);
     }
 }
+
