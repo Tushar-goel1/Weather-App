@@ -111,9 +111,6 @@ p{
         width: 35vw;
         font-size: 20px;
         gap: 3vh;
-/*         background: rgb(58,155,180);
-        background: linear-gradient(90deg, rgba(58,155,180,1) 0%, rgba(11,197,232,1) 5%, rgba(7,237,219,1) 100%);
-        border-radius: 20px; */
     }
     button{
         font-size: smaller;
