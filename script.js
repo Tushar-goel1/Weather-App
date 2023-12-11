@@ -50,8 +50,6 @@ function getcityname(lat, lon) {
   req.onload = function () {
     let data = JSON.parse(req.responseText);
     current_location.innerHTML = "Current location: " + data[0].name;
-
-    console.log(data);
   };
   req.send();
 }
