@@ -50,7 +50,7 @@ button{
     font-size: small;
     border-radius: 5px;
     height: 4vh;
-    width: 4vw;
+    width: 6vw;
     color: white;
     background-color: green;
 }
@@ -121,16 +121,16 @@ p{
         background: none;
     }
     input{
-        width: 25vw;
+        width: 55vw;
         height: 5vh;
-        border-radius: 5px;
+        border-radius: 15px;
         padding-left: 5px;
     }
     button{
         font-size: smaller;
-        border-radius: 5px;
+        border-radius: 10px;
         height: 4vh;
-        width: 100vw;
+        width: 15vw;
         color: white;
         background-color: green;
     }
