@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script2.js"></script>
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">WEATHER APP</div>
+        <div class="container-content">
+            <div class="container-nav">
+                <ul id="nav-bar-search">
+                    <a href="index.html"><li>Home</li></a>
+                    <a href="#"><li>Search</li></a>
+                </ul>
+            </div>
+            <div class="search-place">
+                <input type="text" id="tname"  placeholder="Type the location ">
+                <button id="searching-location">Search</button>
+            </div>
+            <div class="container-middle-search">
+                <ul>
+                    <li id="search-temp-curr"></li>
+                    
+                    <li id="search-feels_like"></li>
+                </ul>
+                <img src="snow.png" alt=""  id="search-temp-img">
+            </div>
+    
+            <div class="container-end">
+                <ul id="end-bar-search">
+                    <li>
+                        <img src="humidity.png" alt="">
+                        <p id="search-humidity">humidity</p>
+                    </li>
+                    <li>
+                        <img src="wind.png" alt="">
+                        <p id="search-wind-speed">Wind</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>@2023 WeatherApp.All Right Reserved</footer>
+</body>
+</html>
