@@ -23,14 +23,12 @@ setInterval(function () {
 let temperature = document.querySelector("#temp-curr");
 let feels_like = document.querySelector("#feels_like");
 
-function getLatLon(lat, lon) {
-  let request = new XMLHttpRequest();
-  let method = "GET";
+async function getLatLon(lat, lon) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=c678d134a995fa3151eccd5fab174d7d`;
 
-  request.open(method, url);
-  request.onload = function () {
-    let data = JSON.parse(request.responseText);
+  try{
+    let respons=await fetch(url);
+    let data =await respons.json();
     let icon = data.weather[0].icon;
     let disc=data.weather[0].description;
     let iconurl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -41,20 +39,20 @@ function getLatLon(lat, lon) {
     let val = Math.round(data.wind.speed);
     wind_speed.innerHTML = val + "m/s";
     humidity.innerHTML = data.main.humidity + "%";
-  };
-  request.send();
+  }
+   catch(error){
+      alert("Not able to fetch current location!!!");
+   }
 }
 
-function getcityname(lat, lon) {
-  let req = new XMLHttpRequest();
-  let method = "GET";
+async function getcityname(lat, lon) {
   let URL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=c678d134a995fa3151eccd5fab174d7d`;
-  req.open(method, URL);
-  req.onload = function () {
-    let data = JSON.parse(req.responseText);
+  try{
+    let respons=await fetch(URL);
+    let data = await respons.json();
     current_location.innerHTML = "Current location: " + data[0].name;
-  };
-  req.send();
+  }
+   catch(error){}
 }
 
 function currentLocation(position) {
