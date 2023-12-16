@@ -24,7 +24,9 @@ let temperature = document.querySelector("#temp-curr");
 let feels_like = document.querySelector("#feels_like");
 
 async function getLatLon(lat, lon) {
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=c678d134a995fa3151eccd5fab174d7d`;
+  
+
+   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=c678d134a995fa3151eccd5fab174d7d`;
 
   try{
     let respons=await fetch(url);
@@ -46,13 +48,15 @@ async function getLatLon(lat, lon) {
 }
 
 async function getcityname(lat, lon) {
-  let URL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=c678d134a995fa3151eccd5fab174d7d`;
+  let URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=c678d134a995fa3151eccd5fab174d7d`;
   try{
     let respons=await fetch(URL);
     let data = await respons.json();
     current_location.innerHTML = "Current location: " + data[0].name;
   }
-   catch(error){}
+   catch(error){
+    alert("Error fetching city name:", error);
+   }
 }
 
 function currentLocation(position) {
