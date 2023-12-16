@@ -19,11 +19,11 @@
 .container-content{
     display: flex;
     flex-direction: column;
-    padding-top: 8vh;
+    padding-top: 6vh;
     height: 75vh;
     width: 40vw;
     font-size: x-large;
-    gap: 7vh;
+    gap: 6vh;
     padding-left: 2vw;
     background: linear-gradient(90deg, rgba(58,155,180,1) 0%, rgba(11,197,232,1) 5%, rgba(7,237,219,1) 100%);
     border-radius: 20px;
