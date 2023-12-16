@@ -62,6 +62,10 @@ footer{
     color: white;
     padding-top: 8px;
 }
+.image-description{
+    display: flex;
+    flex-direction: column;
+}
 #nav-bar{
     display: flex;
     justify-content: space-around;
@@ -147,3 +151,4 @@ p{
         padding-left: 2vw;
     }
 }
+
