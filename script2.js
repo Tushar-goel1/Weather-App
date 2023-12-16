@@ -8,6 +8,7 @@ let humidity=document.querySelector("#search-humidity");
 let temperature=document.querySelector("#search-temp-curr"); 
 let feels_like=document.querySelector("#search-feels_like");
 let search_button=document.querySelector("#searching-location");
+let temp_img_desc = document.querySelector("#search-temp-img-desc");
 let search_location;
 
 search_button.addEventListener("click",function(){
@@ -26,8 +27,10 @@ search_button.addEventListener("click",function(){
             }else{
                 let data=JSON.parse(rq.responseText);
                 let icon=data.weather[0].icon;
+                let disc=data.weather[0].description;
                 let iconurl= `https://openweathermap.org/img/wn/${icon}@2x.png`;
                 temp_img.src=iconurl;
+                temp_img_desc.innerHTML=disc;
                 temperature.innerHTML= "Currently "+data.main.temp+"°c" ;
                 feels_like.innerHTML= "feels like " + data.main.feels_like+"°c" ;
                 let val=Math.round(data.wind.speed);
