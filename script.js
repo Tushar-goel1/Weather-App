@@ -2,6 +2,7 @@ let temp_img = document.querySelector("#temp-img");
 let wind_speed = document.querySelector("#wind-speed");
 let humidity = document.querySelector("#humidity");
 let current_location = document.querySelector("#location");
+let temp_img_desc = document.querySelector("#temp-img-desc");
 
 setInterval(function () {
   let currentDate = new Date();
@@ -31,7 +32,9 @@ function getLatLon(lat, lon) {
   request.onload = function () {
     let data = JSON.parse(request.responseText);
     let icon = data.weather[0].icon;
+    let disc=data.weather[0].description;
     let iconurl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    temp_img_desc.innerHTML=disc;
     temp_img.src = iconurl;
     temperature.innerHTML = "Currently " + data.main.temp + "°c";
     feels_like.innerHTML = "feels like " + data.main.feels_like + "°c";
@@ -57,9 +60,9 @@ function getcityname(lat, lon) {
 function currentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  console.log(lat, lon);
+  
   getcityname(lat, lon);
   getLatLon(lat, lon);
 }
 
-navigator.geolocation.getCurrentPosition(currentLocation);
+navigator.geolocation.watchPosition(currentLocation);
