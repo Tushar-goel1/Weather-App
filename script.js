@@ -12,7 +12,6 @@ setInterval(function () {
   let n = currentDate.toLocaleString([], {
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit",
   });
 
   let dated = cDate + "-" + (cMonth + 1) + "-" + cYear;
@@ -47,7 +46,7 @@ async function getLatLon(lat, lon) {
    }
 }
 
-async function getcityname(lat, lon) {
+async function getCityName(lat, lon) {
   let URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=c678d134a995fa3151eccd5fab174d7d`;
   try{
     let respons=await fetch(URL);
@@ -59,12 +58,18 @@ async function getcityname(lat, lon) {
    }
 }
 
-function currentLocation(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  
-  getcityname(lat, lon);
-  getLatLon(lat, lon);
-}
+function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
 
-navigator.geolocation.watchPosition(currentLocation);
+       getCityName(lat, lon);
+       getLatLon(lat, lon);
+    },
+    (error) => {
+      alert("Error getting location: " + error.message);
+    }
+  );
+}
+getCurrentLocation();
