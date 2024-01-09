@@ -59,17 +59,22 @@ async function getCityName(lat, lon) {
 }
 
 function getCurrentLocation() {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
-
-       getCityName(lat, lon);
-       getLatLon(lat, lon);
-    },
-    (error) => {
-      alert("Error getting location: " + error.message);
-    }
-  );
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+  
+         getCityName(lat, lon);
+         getLatLon(lat, lon);
+      },
+      (error) => {
+        alert("Error getting location: " + error.message);
+      }
+    )
+  }
+  else{
+    alert("Geolocation is not supported by the browser");
+  }
 }
 getCurrentLocation();
